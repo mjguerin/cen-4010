@@ -1,0 +1,14 @@
+CREATE TABLE `bookdatabase` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `isbn` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `price` double DEFAULT NULL,
+  `author` varchar(255) DEFAULT NULL,
+  `genre` varchar(255) DEFAULT NULL,
+  `publisher` varchar(255) DEFAULT NULL,
+  `year_published` int DEFAULT NULL,
+  `copies_sold` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `isbn` (`isbn`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
