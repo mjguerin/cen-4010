@@ -24,4 +24,11 @@ public class BookController {
      List<Book> books = bookService.getBooksByGenre(genre);
      return ResponseEntity.ok(books);
  }
+ 
+ @GetMapping("/top-sellers")
+ public ResponseEntity<List<Book>> getTopSellers() {
+     List<Book> topSellers = bookService.getTopSellers();
+     return ResponseEntity.ok(topSellers);
+ }
+ 
 }

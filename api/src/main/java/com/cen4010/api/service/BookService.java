@@ -20,4 +20,9 @@ public class BookService {
  public List<Book> getBooksByGenre(String genre) {
      return bookRepository.findByGenre(genre);
  }
+ 
+ public List<Book> getTopSellers() {
+	 return bookRepository.findTopSellers().subList(0, Math.min(10, bookRepository.findTopSellers().size()));
+ }
+ 
 }
