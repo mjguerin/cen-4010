@@ -31,4 +31,15 @@ public class BookController {
      return ResponseEntity.ok(topSellers);
  }
  
+ @GetMapping("/by-rating")
+ public ResponseEntity<?> getBooksByRatingAndHigher(
+         @RequestParam Double rating) {
+     try {
+         List<Book> books = bookService.getBooksByRatingAndHigher(rating);
+         return ResponseEntity.ok(books);
+     } catch (IllegalArgumentException e) {
+         return ResponseEntity.badRequest().body(e.getMessage());
+     }
+ }
+ 
 }

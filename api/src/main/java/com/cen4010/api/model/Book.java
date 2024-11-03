@@ -16,6 +16,7 @@ public class Book {
 	private String publisher;
 	private Integer yearPublished;
 	private Integer copiesSold;
+	private Double rating;
 
     // Getter and Setter methods
  
@@ -89,6 +90,14 @@ public class Book {
 
     public void setCopiesSold(Integer copiesSold) {
         this.copiesSold = copiesSold;
+    }
+    
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
     
 }
