@@ -1,4 +1,4 @@
-package com.cen4010.api.model;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;

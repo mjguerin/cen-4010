@@ -1,11 +1,12 @@
 //BookController.java
-package com.cen4010.api.controller;
+package com.example.demo.controller;
 
-import com.cen4010.api.model.Book;
-import com.cen4010.api.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.model.Book;
+import com.example.demo.service.BookService;
 
 import java.util.List;
 

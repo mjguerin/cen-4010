@@ -1,10 +1,11 @@
 //BookService.java
-package com.cen4010.api.service;
+package com.example.demo.service;
 
-import com.cen4010.api.model.Book;
-import com.cen4010.api.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Book;
+import com.example.demo.repository.BookRepository;
 
 import java.util.List;
 
