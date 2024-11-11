@@ -1,54 +1,69 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
-@Table(name = "books")
+@Table(name = "bookdatabase")
 public class Book {
-	@Id
-	private String ISBN;
-	private String bookName;
-	private String bookDescription;
-	private BigDecimal price;
-	private String author;
-	private String genre;
-	private String publisher;
-	private Integer yearPublished;
-	private Integer copiesSold;
-	private Double rating;
 
-    // Getter and Setter methods
- 
-    public String getISBN() {
-        return ISBN;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String isbn;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    private double price;
+    private String author;
+    private String genre;
+    private String publisher;
+    private int yearPublished;
+    private int copiesSold;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getBookDescription() {
-        return bookDescription;
+    public String getName() {
+        return name;
     }
 
-    public void setBookDescription(String bookDescription) {
-        this.bookDescription = bookDescription;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -76,23 +91,23 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Integer getYearPublished() {
+    public int getYearPublished() {
         return yearPublished;
     }
 
-    public void setYearPublished(Integer yearPublished) {
+    public void setYearPublished(int yearPublished) {
         this.yearPublished = yearPublished;
     }
 
-    public Integer getCopiesSold() {
+    public int getCopiesSold() {
         return copiesSold;
     }
 
-    public void setCopiesSold(Integer copiesSold) {
+    public void setCopiesSold(int copiesSold) {
         this.copiesSold = copiesSold;
     }
-    
-    public Double getRating() {
+
+       public Double getRating() {
         return rating;
     }
 
