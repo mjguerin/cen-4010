@@ -106,13 +106,13 @@ public class Book {
     public void setCopiesSold(int copiesSold) {
         this.copiesSold = copiesSold;
     }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+    
 }
-
-
-
-
-
-
-
-
-
