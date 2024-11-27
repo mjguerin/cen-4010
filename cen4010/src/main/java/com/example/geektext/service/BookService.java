@@ -1,10 +1,11 @@
-package com.example.demo.service;
+package com.example.geektext.service;
 
-import com.example.demo.model.Book;
-import com.example.demo.repository.BookRepository;
+import com.example.geektext.model.Book;
+import com.example.geektext.repository.BookRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BookService {
@@ -46,5 +47,22 @@ public class BookService {
 		}
 		return bookRepository.findByRatingGreaterThanEqual(rating);
 	}
+	
+	@Transactional
+	public void applyPublisherDiscount(String publisher, Double discountPercent) {
+	    if (discountPercent < 0 || discountPercent > 100) {
+	        throw new IllegalArgumentException("Discount percentage must be between 0 and 100");
+	    }
+	    
+	    if (publisher == null || publisher.trim().isEmpty()) {
+	        throw new IllegalArgumentException("Publisher name cannot be empty");
+	    }
+
+	    int updatedBooks = bookRepository.applyPublisherDiscount(discountPercent, publisher);
+	    
+	    if (updatedBooks == 0) {
+	        throw new IllegalArgumentException("No books found for publisher: " + publisher);
+	    }
+	}	
 
 }

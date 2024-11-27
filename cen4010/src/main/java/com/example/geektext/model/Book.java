@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.geektext.model;
 
 import jakarta.persistence.*;
 
@@ -25,6 +25,7 @@ public class Book {
     private String publisher;
     private int yearPublished;
     private int copiesSold;
+    private double rating;
 
     // Getters and Setters
     public Long getId() {

@@ -1,10 +1,11 @@
-package com.example.demo.repository;
+package com.example.geektext.repository;
 
-import com.example.demo.model.Book;
+import com.example.geektext.model.Book;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -21,5 +22,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     
     @Query("SELECT b FROM Book b WHERE b.rating >= :rating ORDER BY b.rating DESC")
     List<Book> findByRatingGreaterThanEqual(@Param("rating") Double rating);
+
+    @Modifying
+    @Query("UPDATE Book b SET b.price = ROUND(b.price * (1 - :discountPercent/100),2) WHERE b.publisher = :publisher")
+    int applyPublisherDiscount(@Param("discountPercent") Double discountPercent, 
+                              @Param("publisher") String publisher);
     
 }
