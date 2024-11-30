@@ -1,0 +1,9 @@
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/Cen4010Application.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/controller/AuthorController.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/controller/BookController.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/model/Author.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/model/Book.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/repository/AuthorRepository.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/repository/BookRepository.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/service/AuthorService.java
+/Users/mac-elan/eclipse-workspace/cen4010/src/main/java/com/example/demo/service/BookService.java
