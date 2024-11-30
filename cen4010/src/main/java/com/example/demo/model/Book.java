@@ -25,6 +25,7 @@ public class Book {
     private String publisher;
     private int yearPublished;
     private int copiesSold;
+    private Double rating;
 
     // Getters and Setters
     public Long getId() {

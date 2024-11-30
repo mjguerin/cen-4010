@@ -16,16 +16,71 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping
+    // Method 1: Retrieve books by ISBN and author
+    @GetMapping("/search")
     public ResponseEntity<List<Book>> findBooksByIsbnAndAuthor(
-            @RequestParam(name = "isbn",required = false) String isbn,
-            @RequestParam(name = "author",required = false) String author) {
+            @RequestParam(name = "isbn") String isbn,
+            @RequestParam(name = "author") String author) {
 
         try {
             List<Book> books = bookService.findBooksByIsbnAndAuthor(isbn, author);
             return new ResponseEntity<>(books, HttpStatus.OK);
         } catch (Exception e) {
             System.err.println("Error retrieving books: " + e.getMessage());
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Method 2: Retrieve books by genre
+    @GetMapping("/genre")
+    public ResponseEntity<List<Book>> getBooksByGenre(@RequestParam String genre) {
+        try {
+            List<Book> books = bookService.getBooksByGenre(genre);
+            return new ResponseEntity<>(books, HttpStatus.OK);
+        } catch (Exception e) {
+            System.err.println("Error retrieving books by genre: " + e.getMessage());
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Method 3: Retrieve all books
+    @GetMapping
+    public ResponseEntity<List<Book>> getAllBooks() {
+        try {
+            List<Book> books = bookService.getAllBooks();
+            return new ResponseEntity<>(books, HttpStatus.OK);
+        } catch (Exception e) {
+            System.err.println("Error retrieving all books: " + e.getMessage());
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Method 4: Get top sellers
+    @GetMapping("/top-sellers")
+    public ResponseEntity<List<Book>> getTopSellers() {
+        try {
+            List<Book> topSellers = bookService.getTopSellers();
+            return new ResponseEntity<>(topSellers, HttpStatus.OK);
+        } catch (Exception e) {
+            System.err.println("Error retrieving top sellers: " + e.getMessage());
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Method 5: Get books by rating and higher
+    @GetMapping("/by-rating")
+    public ResponseEntity<?> getBooksByRatingAndHigher(@RequestParam Double rating) {
+        try {
+            List<Book> books = bookService.getBooksByRatingAndHigher(rating);
+            return new ResponseEntity<>(books, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            System.err.println("Error retrieving books by rating: " + e.getMessage());
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -60,27 +115,4 @@ public class BookController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-	@GetMapping
-	public ResponseEntity<List<Book>> getBooksByGenre(@RequestParam String genre) {
-		List<Book> books = bookService.getBooksByGenre(genre);
-		return ResponseEntity.ok(books);
-	}
-
-	@GetMapping("/top-sellers")
-	public ResponseEntity<List<Book>> getTopSellers() {
-		List<Book> topSellers = bookService.getTopSellers();
-		return ResponseEntity.ok(topSellers);
-	}
-
-	@GetMapping("/by-rating")
-	public ResponseEntity<?> getBooksByRatingAndHigher(@RequestParam Double rating) {
-		try {
-			List<Book> books = bookService.getBooksByRatingAndHigher(rating);
-			return ResponseEntity.ok(books);
-		} catch (IllegalArgumentException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
-		}
-	}
-
 }
