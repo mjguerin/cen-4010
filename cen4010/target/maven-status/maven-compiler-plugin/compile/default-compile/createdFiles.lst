@@ -1,9 +1,0 @@
-com/example/demo/repository/AuthorRepository.class
-com/example/demo/controller/AuthorController.class
-com/example/demo/repository/BookRepository.class
-com/example/demo/model/Book.class
-com/example/demo/model/Author.class
-com/example/demo/controller/BookController.class
-com/example/demo/Cen4010Application.class
-com/example/demo/service/BookService.class
-com/example/demo/service/AuthorService.class
