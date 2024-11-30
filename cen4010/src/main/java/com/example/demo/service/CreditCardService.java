@@ -1,7 +1,7 @@
-package com.geektext.service;
+package com.example.demo.service;
 
-import com.geektext.model.CreditCard;
-import com.geektext.repository.CreditCardRepository;
+import com.example.demo.model.CreditCard;
+import com.example.demo.repository.CreditCardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

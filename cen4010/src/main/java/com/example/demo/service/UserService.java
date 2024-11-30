@@ -1,7 +1,7 @@
-package com.geektext.service;
+package com.example.demo.service;
 
-import com.geektext.model.User;
-import com.geektext.repository.UserRepository;
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.geektext.model;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 

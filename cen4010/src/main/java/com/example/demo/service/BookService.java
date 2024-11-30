@@ -32,7 +32,12 @@ public class BookService {
         }
     }
 
-	public List<Book> getBooksByGenre(String genre) {
+    public List<Book> getAllBooks() {
+        return bookRepository.findAll();
+    }
+
+
+    public List<Book> getBooksByGenre(String genre) {
 		return bookRepository.findByGenre(genre);
 	}
 

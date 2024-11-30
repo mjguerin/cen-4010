@@ -1,7 +1,7 @@
-package com.geektext.repository;
+package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.geektext.model.CreditCard;
+import com.example.demo.model.CreditCard;
 
 public interface CreditCardRepository extends JpaRepository<CreditCard, Long> {
 }

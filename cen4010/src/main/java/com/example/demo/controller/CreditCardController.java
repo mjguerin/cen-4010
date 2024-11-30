@@ -1,9 +1,9 @@
-package com.geektext.controller;
+package com.example.demo.controller;
 
-import com.geektext.model.CreditCard;
-import com.geektext.model.User;
-import com.geektext.service.CreditCardService;
-import com.geektext.service.UserService;
+import com.example.demo.model.CreditCard;
+import com.example.demo.model.User;
+import com.example.demo.service.CreditCardService;
+import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
